@@ -2,7 +2,7 @@
 using Club.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Formula.Data
+namespace Club.Data
 {
     public class SponsorDbStorage
     {
