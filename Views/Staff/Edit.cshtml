@@ -1,13 +1,14 @@
-﻿@model Club.Models.ManagerViewModel
+﻿@model Club.Models.StaffViewModel
 
 @{
-    ViewData["Title"] = "Создать Владельца";
+    ViewData["Title"] = "Изменить Сотрудника";
 }
 
 <div class="mt-4 container">
     <h1>@ViewData["Title"]</h1>
 
-    <form asp-action="Create" method="post">
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="StaffId" />
         <div class="form-group">
             <label asp-for="LastName">Фамилия</label>
             <input asp-for="LastName" class="form-control" />
@@ -29,7 +30,17 @@
             <span asp-validation-for="PhoneNumber" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Amount">Доля в клубе</label>
+            <label asp-for="Gender">Пол</label>
+            <input asp-for="Gender" class="form-control" />
+            <span asp-validation-for="Gender" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Job">Должность</label>
+            <input asp-for="Job" class="form-control" />
+            <span asp-validation-for="Job" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Amount">Зарплата</label>
             <input asp-for="Amount" class="form-control" />
             <span asp-validation-for="Amount" class="text-danger"></span>
         </div>
@@ -38,7 +49,7 @@
             <input asp-for="ClubsId" class="form-control" />
             <span asp-validation-for="ClubsId" class="text-danger"></span>
         </div>
-        <button type="submit" class="btn btn-primary">Создать</button>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
         <a asp-action="Index" class="btn btn-secondary">Назад</a>
     </form>
 

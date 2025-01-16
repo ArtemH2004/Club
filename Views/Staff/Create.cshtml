@@ -1,7 +1,7 @@
-﻿@model Club.Models.ManagerViewModel
+﻿@model Club.Models.StaffViewModel
 
 @{
-    ViewData["Title"] = "Создать Владельца";
+    ViewData["Title"] = "Создать Сотрудника";
 }
 
 <div class="mt-4 container">
@@ -29,7 +29,17 @@
             <span asp-validation-for="PhoneNumber" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Amount">Доля в клубе</label>
+            <label asp-for="Gender">Пол</label>
+            <input asp-for="Gender" class="form-control" />
+            <span asp-validation-for="Gender" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Job">Должность</label>
+            <input asp-for="Job" class="form-control" />
+            <span asp-validation-for="Job" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Amount">Зарплата</label>
             <input asp-for="Amount" class="form-control" />
             <span asp-validation-for="Amount" class="text-danger"></span>
         </div>
@@ -48,3 +58,4 @@
         }
     }
 </div>
+    
