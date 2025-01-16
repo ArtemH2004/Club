@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Club.Models.Competition>
+
+@{
+    ViewData["Title"] = "Соревнования";
+}
+
+<div class="mt-4 container">
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="mb-3">
+        <a asp-action="Create" class="btn btn-primary">Создать</a>
+    </div>
+
+    <table class="table-striped table-bordered table">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Название</th>
+                <th>Дата</th>
+                <th>Цена</th>
+                <th>Количество зрителей</th>
+                <th>Результат</th>
+                <th>Погода</th>
+                <th>ID Поля</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var competition in Model)
+            {
+                <tr>
+                    <td>@competition.CompetitionId</td>
+                    <td>@competition.Name</td>
+                    <td>@competition.Date.ToShortDateString()</td>
+                    <td>@competition.Price</td>
+                    <td>@competition.AudienceCount</td>
+                    <td>@competition.Result</td>
+                    <td>@competition.Weather</td>
+                    <td>@competition.FieldId</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@competition.CompetitionId" class="btn btn-warning btn-sm">Изменить</a>
+                        <form asp-action="Delete" asp-route-id="@competition.CompetitionId" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Вы уверены, что хотите удалить данное соревнование?');">Удалить</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
