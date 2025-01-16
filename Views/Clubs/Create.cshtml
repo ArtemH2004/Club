@@ -1,0 +1,50 @@
+﻿@model Club.Models.ClubsViewModel
+
+@{
+    ViewData["Title"] = "Создать Клуб";
+}
+
+<div class="mt-4 container">
+    <h1>@ViewData["Title"]</h1>
+
+    <form asp-action="Create" enctype="multipart/form-data" method="post">
+        <div class="form-group">
+            <label asp-for="Name">Название</label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Address">Адрес</label>
+            <input asp-for="Address" class="form-control" />
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CreatedDeate">Дата создания</label>
+            <input asp-for="CreatedDeate" class="form-control" type="date" />
+            <span asp-validation-for="CreatedDeate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CompetitionId">ID Соревнования</label>
+            <input asp-for="CompetitionId" class="form-control" />
+            <span asp-validation-for="CompetitionId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="FieldId">ID Поля</label>
+            <input asp-for="FieldId" class="form-control" />
+            <span asp-validation-for="FieldId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Photo">Фото</label>
+            <input asp-for="Photo" type="file" class="form-control" />
+            <span asp-validation-for="Photo" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Создать</button>
+        <a asp-action="Index" class="btn btn-secondary">Назад</a>
+    </form>
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+</div>
